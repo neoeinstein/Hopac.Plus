@@ -324,7 +324,7 @@ Target "AddLangDocs" (fun _ ->
 Target "ReleaseDocs" (fun _ ->
     let tempDocsDir = "temp/gh-pages"
     CleanDir tempDocsDir
-    Repository.cloneSingleBranch "" (gitHome + "/" + gitName + ".git") "gh-pages" tempDocsDir
+    Repository.cloneSingleBranch "" ("git@github.com:" + gitOwner + "/" + gitName + ".git") "gh-pages" tempDocsDir
 
     CopyRecursive "docs/output" tempDocsDir true |> tracefn "%A"
     StageAll tempDocsDir
@@ -336,14 +336,6 @@ Target "ReleaseDocs" (fun _ ->
 open Octokit
 
 Target "Release" (fun _ ->
-    let user =
-        match getBuildParam "github-user" with
-        | s when not (String.IsNullOrWhiteSpace s) -> s
-        | _ -> getUserInput "Username: "
-    let pw =
-        match getBuildParam "github-pw" with
-        | s when not (String.IsNullOrWhiteSpace s) -> s
-        | _ -> getUserPassword "Password: "
     let remote =
         Git.CommandHelper.getGitResult "" "remote -v"
         |> Seq.filter (fun (s: string) -> s.EndsWith("(push)"))
@@ -358,7 +350,7 @@ Target "Release" (fun _ ->
     Branches.pushTag "" remote release.NugetVersion
 
     // release on github
-    createClient user pw
+    createClientWithToken (getBuildParamOrDefault "github-token" "")
     |> createDraft gitOwner gitName release.NugetVersion (release.SemVer.PreRelease <> None) release.Notes
     // TODO: |> uploadFile "PATH_TO_FILE"
     |> releaseDraft
@@ -407,5 +399,5 @@ Target "All" DoNothing
 
 "ReleaseDocs"
   ==> "Release"
-  
+
 RunTargetOrDefault "All"
