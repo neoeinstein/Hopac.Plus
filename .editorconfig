@@ -1,0 +1,40 @@
+# EditorConfig is awesome:
+http://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Default settings:
+# A newline ending every file
+# Use 4 spaces as indentation
+[*]
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+
+[*.{fs,fsi,fsx}]
+charset = utf-8
+trim_trailing_whitespace = true
+end_of_line = lf
+indent_size = 2
+
+[*.yaml]
+charset = utf-8
+trim_trailing_whitespace = true
+end_of_line = lf
+indent_size = 2
+
+# Xml project files
+[*.{fsproj,csproj,vbproj,vcxproj,vcxproj.filters,proj,nativeproj,locproj,projitems,shproj}]
+indent_size = 2
+
+# Xml config files
+[*.{props,targets,ruleset,config,nuspec,resx,vsixmanifest,vsct,xml}]
+indent_size = 2
+
+[*.{cmd,ps1}]
+indent_size = 2
+
+[*.{dependencies,lock,references,template}]
+trim_trailing_whitespace = true
+indent_size = 2

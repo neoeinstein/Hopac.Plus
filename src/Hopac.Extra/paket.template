@@ -1,0 +1,25 @@
+type project
+title
+    Hopac.Extra
+owners
+    Marcus Griep
+authors 
+    Marcus Griep
+projectUrl
+    https://github.com/neoeinstein/Hopac.Extra
+iconUrl
+    https://raw.githubusercontent.com/neoeinstein/Hopac.Extra/master/docs/files/img/logo.png
+licenseUrl
+    https://github.com/neoeinstein/Hopac.Extra/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+copyright
+    Copyright 2015
+tags
+    hopac concurrency f# fsharp parallel async concurrent
+summary
+    Utilities and concurrency patterns for Hopac
+description
+    A collection of utilities that encapsulate common concurrency patterns and constructs for use with the Hopac concurrency library.
+
+

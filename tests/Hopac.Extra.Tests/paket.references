@@ -1,0 +1,5 @@
+FSharp.Core
+Hopac
+group Test
+NUnit
+NUnit.Runners
