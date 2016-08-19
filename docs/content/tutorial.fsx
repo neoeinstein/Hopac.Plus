@@ -1,7 +1,7 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
-#I "../../bin/Hopac.Extra"
+#I "../../bin/Hopac.Plus"
 
 (**
 Example Usage
@@ -10,9 +10,9 @@ Example Usage
 *)
 #r "Hopac.Core.dll"
 #r "Hopac.dll"
-#r "Hopac.Extra.dll"
+#r "Hopac.Plus.dll"
 open Hopac
-open Hopac.Extra.Collections
+open Hopac.Plus.Collections
 
 let smap = run <| SharedMap.create ()
 

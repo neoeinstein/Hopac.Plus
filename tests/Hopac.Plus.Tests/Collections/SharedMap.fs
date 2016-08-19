@@ -1,7 +1,7 @@
-module Hopac.Extra.Tests.Collections.SharedMap
+module Hopac.Plus.Tests.Collections.SharedMap
 
 open Hopac
-open Hopac.Extra.Collections
+open Hopac.Plus.Collections
 open NUnit.Framework
 
 [<Test>]

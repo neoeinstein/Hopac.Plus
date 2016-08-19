@@ -28,7 +28,7 @@ open SourceLink
 
 // The name of the project
 // (used by attributes in AssemblyInfo, name of a NuGet package and directory in 'src')
-let project = "Hopac.Extra"
+let project = "Hopac.Plus"
 
 // Short summary of the project
 // (used as description in AssemblyInfo and as a short summary for NuGet package)
@@ -45,7 +45,7 @@ let authors = [ "Marcus Griep" ]
 let tags = "hopac concurrency f# fsharp parallel async concurrent"
 
 // File system information
-let solutionFile  = "Hopac.Extra.sln"
+let solutionFile  = "Hopac.Plus.sln"
 
 // Pattern specifying assemblies to be tested using NUnit
 let testAssemblies = "tests/**/bin/Release/*Tests*.dll"
@@ -56,7 +56,7 @@ let gitOwner = "neoeinstein"
 let gitHome = sprintf "%s/%s" "https://github.com" gitOwner
 
 // The name of the project on GitHub
-let gitName = "Hopac.Extra"
+let gitName = "Hopac.Plus"
 
 // The url for the raw files hosted
 let gitRaw = environVarOrDefault "gitRaw" "https://raw.githubusercontent.com/neoeinstein"

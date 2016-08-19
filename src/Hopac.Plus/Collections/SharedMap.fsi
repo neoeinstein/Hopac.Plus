@@ -1,4 +1,4 @@
-namespace Hopac.Extra.Collections
+namespace Hopac.Plus.Collections
 
 type SharedMap<'key,'value when 'key : comparison>
 

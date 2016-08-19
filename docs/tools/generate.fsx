@@ -11,17 +11,17 @@
 // (This is the original behaviour of ProjectScaffold prior to multi project support)
 let referenceBinaries = []
 // Web site location for the generated documentation
-let website = "/Hopac.Extra"
+let website = "/Hopac.Plus"
 
-let githubLink = "https://github.com/neoeinstein/Hopac.Extra"
+let githubLink = "https://github.com/neoeinstein/Hopac.Plus"
 
 // Specify more information about your project
 let info =
-  [ "project-name", "Hopac.Extra"
+  [ "project-name", "Hopac.Plus"
     "project-author", "Marcus Griep"
     "project-summary", "Utilities and concurrency patterns for Hopac"
     "project-github", githubLink
-    "project-nuget", "http://nuget.org/packages/Hopac.Extra" ]
+    "project-nuget", "http://nuget.org/packages/Hopac.Plus" ]
 
 // --------------------------------------------------------------------------------------
 // For typical project, no changes are needed below

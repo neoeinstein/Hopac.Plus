@@ -1,16 +1,16 @@
 type project
 title
-    Hopac.Extra
+    Hopac.Plus
 owners
     Marcus Griep
 authors 
     Marcus Griep
 projectUrl
-    https://github.com/neoeinstein/Hopac.Extra
+    https://github.com/neoeinstein/Hopac.Plus
 iconUrl
-    https://raw.githubusercontent.com/neoeinstein/Hopac.Extra/master/docs/files/img/logo.png
+    https://raw.githubusercontent.com/neoeinstein/Hopac.Plus/master/docs/files/img/logo.png
 licenseUrl
-    https://github.com/neoeinstein/Hopac.Extra/blob/master/LICENSE.txt
+    https://github.com/neoeinstein/Hopac.Plus/blob/master/LICENSE.txt
 requireLicenseAcceptance
     false
 copyright

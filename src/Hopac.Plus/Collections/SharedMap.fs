@@ -1,4 +1,4 @@
-namespace Hopac.Extra.Collections
+namespace Hopac.Plus.Collections
 
 open Hopac
 open Hopac.Infixes
