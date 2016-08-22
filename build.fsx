@@ -142,13 +142,16 @@ Target "Build" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Run the unit tests using test runner
 
+open Fake.Testing
+
 Target "RunTests" (fun _ ->
     !! testAssemblies
-    |> NUnit (fun p ->
+    |> xUnit2 (fun p ->
         { p with
-            DisableShadowCopy = true
-            TimeOut = TimeSpan.FromMinutes 20.
-            OutputFile = "TestResults.xml" })
+            Parallel = ParallelMode.All
+            ShadowCopy = false
+            TimeOut = TimeSpan.FromMinutes 5.
+            HtmlOutputPath = Some ("temp" </> "xunit.html") })
 )
 
 #if MONO

@@ -1,5 +1,7 @@
 FSharp.Core
 Hopac
 group Test
-NUnit
-NUnit.Runners
+FsCheck
+FsCheck.Xunit
+Unquote
+xunit
