@@ -61,8 +61,8 @@
   <Import Project="..\..\.paket\paket.targets" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" Condition="Exists('AssemblyInfo.fs')" />
-    <Compile Include="Collections\SharedMap.fsi" />
-    <Compile Include="Collections\SharedMap.fs" />
+    <Compile Include="Collections.fsi" />
+    <Compile Include="Collections.fs" />
     <Compile Include="Library.fs" />
     <None Include="paket.references" />
     <None Include="paket.template" />
