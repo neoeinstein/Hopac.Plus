@@ -145,6 +145,15 @@ Target "Build" (fun _ ->
 open Fake.Testing
 
 Target "RunTests" (fun _ ->
+#if MONO
+#else
+    RegexReplaceInFileWithEncoding
+      "\n</configuration>"
+      "\n<runtime><gcServer enabled=\"true\"/></runtime></configuration>"
+      System.Text.Encoding.UTF8
+      "packages/test/xunit.runner.console/tools/xunit.console.exe.config"
+#endif
+
     !! testAssemblies
     |> xUnit2 (fun p ->
         { p with
