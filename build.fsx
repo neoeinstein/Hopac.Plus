@@ -132,9 +132,9 @@ Target "CleanDocs" (fun _ ->
 Target "Build" (fun _ ->
     !! solutionFile
 #if MONO
-    |> MSBuildReleaseExt "" [ ("DefineConstants","MONO") ] "Rebuild"
+    |> MSBuildReleaseExt "" [ ("DefineConstants","MONO") ] "Build"
 #else
-    |> MSBuildRelease "" "Rebuild"
+    |> MSBuildRelease "" "Build"
 #endif
     |> ignore
 )
@@ -183,7 +183,7 @@ Target "NuGet" (fun _ ->
             ReleaseNotes = toLines release.Notes})
 )
 
-Target "PublishNuget" (fun _ ->
+Target "PublishNuGet" (fun _ ->
     Paket.Push(fun p ->
         { p with
             WorkingDir = "bin" })
@@ -365,42 +365,46 @@ Target "BuildPackage" DoNothing
 // --------------------------------------------------------------------------------------
 // Run all targets by default. Invoke 'build <Target>' to override
 
-Target "All" DoNothing
+Target "Default" DoNothing
 
-"Clean"
-  ==> "AssemblyInfo"
-  ==> "Build"
-  ==> "CopyBinaries"
-  ==> "RunTests"
-  ==> "GenerateReferenceDocs"
-  ==> "GenerateDocs"
-  ==> "All"
-  =?> ("ReleaseDocs",isLocalBuild)
+"Clean" ?=> "Build"
+"AssemblyInfo" ?=> "Build"
+"Build" ?=> "RunTests"
 
-"All"
+"Build" ==> "CopyBinaries"
+"CopyBinaries" ==> "GenerateReferenceDocs"
+
+"CleanDocs" ?=> "GenerateHelp"
+"CleanDocs" ?=> "GenerateReferenceDocs"
+"CleanDocs" ==> "GenerateDocs"
+"GenerateHelp" ==> "GenerateDocs"
+"GenerateReferenceDocs" ==> "GenerateDocs"
+
+"GenerateDocs" ==> "ReleaseDocs"
+
+"Build" ==> "Default"
+"RunTests" ==> "Default"
+"NuGet" ==> "Default"
+
+"Build" ?=> "SourceLink"
+"CopyBinaries" ==> "NuGet"
+
+"NuGet" ==> "BuildPackage"
+
 #if MONO
 #else
-  =?> ("SourceLink", Pdbstr.tryFind().IsSome )
+if Option.isSome <| Pdbstr.tryFind () then
+  "SourceLink" ?=> "NuGet" |> ignore
+  "SourceLink" ==> "PublishNuGet" |> ignore
 #endif
-  ==> "NuGet"
-  ==> "BuildPackage"
 
-"CleanDocs"
-  ==> "GenerateHelp"
-  ==> "GenerateReferenceDocs"
-  ==> "GenerateDocs"
+"CleanDocs" ==> "GenerateHelpDebug"
+"GenerateHelpDebug" ==> "KeepRunning"
 
-"CleanDocs"
-  ==> "GenerateHelpDebug"
+"RunTests" ==> "PublishNuGet"
+"NuGet" ==> "PublishNuGet"
+"AssemblyInfo" ==> "PublishNuGet"
+"PublishNuget" ==> "Release"
+"ReleaseDocs" ==> "Release"
 
-"GenerateHelpDebug"
-  ==> "KeepRunning"
-
-"BuildPackage"
-  ==> "PublishNuget"
-  ==> "Release"
-
-"ReleaseDocs"
-  ==> "Release"
-
-RunTargetOrDefault "All"
+RunTargetOrDefault "Default"
