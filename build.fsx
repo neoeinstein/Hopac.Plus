@@ -148,7 +148,7 @@ Target "RunTests" (fun _ ->
     for x in !!testAssemblies do
       let successful =
         execProcess
-          ( fun psi -> psi.FileName <- x; psi.Arguments <- "/m" )
+          ( fun psi -> psi.FileName <- x )//; psi.Arguments <- "/m" )
           ( TimeSpan.FromMinutes 5. )
       if not successful then
         failwithf "Error running tests"
