@@ -376,10 +376,10 @@ Target "Default" DoNothing
 
 "CleanDocs" ?=> "GenerateHelp"
 "CleanDocs" ?=> "GenerateReferenceDocs"
-"CleanDocs" ==> "GenerateDocs"
 "GenerateHelp" ==> "GenerateDocs"
 "GenerateReferenceDocs" ==> "GenerateDocs"
 
+"CleanDocs" ==> "ReleaseDocs"
 "GenerateDocs" ==> "ReleaseDocs"
 
 "Build" ==> "Default"
@@ -404,6 +404,7 @@ if Option.isSome <| Pdbstr.tryFind () then
 "RunTests" ==> "PublishNuGet"
 "NuGet" ==> "PublishNuGet"
 "AssemblyInfo" ==> "PublishNuGet"
+"Clean" ==> "Release"
 "PublishNuget" ==> "Release"
 "ReleaseDocs" ==> "Release"
 
