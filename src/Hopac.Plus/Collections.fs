@@ -20,8 +20,8 @@ module Map =
     let vO = Map.tryFind k m
     let mN =
       match vO with
-      | None   -> m
       | Some v -> Map.add k (v2v v) m
+      | None   -> m
     mN, vO
 
 type SerializedMap<'k, 'v when 'k : comparison> =
@@ -119,7 +119,7 @@ module SharedMap =
     sm.mutateOutCh *<-=>- fun ivar -> (k,v2v,ivar)
 
   let freeze sm =
-    Job.result ^ System.Threading.Volatile.Read sm.map
+    Alt.always ^ System.Threading.Volatile.Read sm.map
 
   let fork sm =
     ofMap ^ System.Threading.Volatile.Read sm.map
