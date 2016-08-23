@@ -2,6 +2,7 @@ FSharp.Core
 Hopac
 group Test
 FsCheck
-FsCheck.Xunit
+Fuchu
+PerfUtil
 Unquote
-xunit
+File:FsCheck.fs

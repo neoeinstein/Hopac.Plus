@@ -48,7 +48,7 @@ let tags = "hopac concurrency f# fsharp parallel async concurrent"
 let solutionFile  = "Hopac.Plus.sln"
 
 // Pattern specifying assemblies to be tested using NUnit
-let testAssemblies = "tests/**/bin/Release/*Tests*.dll"
+let testAssemblies = "tests/**/bin/Release/*Tests*.exe"
 
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted
@@ -145,22 +145,13 @@ Target "Build" (fun _ ->
 open Fake.Testing
 
 Target "RunTests" (fun _ ->
-#if MONO
-#else
-    RegexReplaceInFileWithEncoding
-      "\n</configuration>"
-      "\n<runtime><gcServer enabled=\"true\"/></runtime></configuration>"
-      System.Text.Encoding.UTF8
-      "packages/test/xunit.runner.console/tools/xunit.console.exe.config"
-#endif
-
-    !! testAssemblies
-    |> xUnit2 (fun p ->
-        { p with
-            Parallel = ParallelMode.All
-            ShadowCopy = false
-            TimeOut = TimeSpan.FromMinutes 5.
-            HtmlOutputPath = Some ("temp" </> "xunit.html") })
+    for x in !!testAssemblies do
+      let successful =
+        execProcess
+          ( fun psi -> psi.FileName <- x; psi.Arguments <- "/m" )
+          ( TimeSpan.FromMinutes 5. )
+      if not successful then
+        failwithf "Error running tests"
 )
 
 #if MONO
