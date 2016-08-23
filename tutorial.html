@@ -101,11 +101,11 @@
 <div class="tip" id="fs4">namespace Hopac.Plus.Collections</div>
 <div class="tip" id="fs5">val smap : SharedMap&lt;string,int&gt;<br /><br />Full name: Tutorial.smap</div>
 <div class="tip" id="fs6">val run : Job&lt;&#39;x&gt; -&gt; &#39;x<br /><br />Full name: Hopac.Hopac.run</div>
-<div class="tip" id="fs7">Multiple items<br />module SharedMap<br /><br />from Hopac.Plus.Collections<br /><br />--------------------<br />type SharedMap&lt;&#39;key,&#39;value (requires comparison)&gt;<br /><br />Full name: Hopac.Plus.Collections.SharedMap&lt;_,_&gt;</div>
-<div class="tip" id="fs8">val create : unit -&gt; Job&lt;SharedMap&lt;&#39;key,&#39;value&gt;&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.create</div>
+<div class="tip" id="fs7">Multiple items<br />module SharedMap<br /><br />from Hopac.Plus.Collections<br /><br />--------------------<br />type SharedMap&lt;&#39;k,&#39;v (requires comparison)&gt;<br /><br />Full name: Hopac.Plus.Collections.SharedMap&lt;_,_&gt;</div>
+<div class="tip" id="fs8">val create : unit -&gt; Job&lt;SharedMap&lt;&#39;k,&#39;v&gt;&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.create</div>
 <div class="tip" id="fs9">val printMap : smap:SharedMap&lt;&#39;a,&#39;b&gt; -&gt; Job&lt;unit&gt; (requires comparison)<br /><br />Full name: Tutorial.printMap</div>
 <div class="tip" id="fs10">val smap : SharedMap&lt;&#39;a,&#39;b&gt; (requires comparison)</div>
-<div class="tip" id="fs11">val freeze : smap:SharedMap&lt;&#39;key,&#39;value&gt; -&gt; Job&lt;Map&lt;&#39;key,&#39;value&gt;&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.freeze</div>
+<div class="tip" id="fs11">val freeze : sm:SharedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;Map&lt;&#39;k,&#39;v&gt;&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.freeze</div>
 <div class="tip" id="fs12">type Job&lt;&#39;T&gt; =<br /><br />Full name: Hopac.Job&lt;_&gt;</div>
 <div class="tip" id="fs13">val map : (&#39;x -&gt; &#39;y) -&gt; Job&lt;&#39;x&gt; -&gt; Job&lt;&#39;y&gt;<br /><br />Full name: Hopac.Job.map</div>
 <div class="tip" id="fs14">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
@@ -113,9 +113,9 @@
 <div class="tip" id="fs16">val smap : SharedMap&lt;string,int&gt;</div>
 <div class="tip" id="fs17">val job : JobBuilder<br /><br />Full name: Hopac.Hopac.job</div>
 <div class="tip" id="fs18">val key : string</div>
-<div class="tip" id="fs19">val add : key:&#39;key -&gt; value:&#39;value -&gt; smap:SharedMap&lt;&#39;key,&#39;value&gt; -&gt; Alt&lt;unit&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.add</div>
-<div class="tip" id="fs20">val mutate : key:&#39;key -&gt; f:(&#39;value -&gt; &#39;value) -&gt; smap:SharedMap&lt;&#39;key,&#39;value&gt; -&gt; Alt&lt;unit&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.mutate</div>
-<div class="tip" id="fs21">val remove : key:&#39;key -&gt; smap:SharedMap&lt;&#39;key,&#39;value&gt; -&gt; Alt&lt;unit&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.remove</div>
+<div class="tip" id="fs19">val add : k:&#39;k -&gt; v:&#39;v -&gt; sm:SharedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;unit&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.add</div>
+<div class="tip" id="fs20">val mutate : k:&#39;k -&gt; v2v:(&#39;v -&gt; &#39;v) -&gt; sm:SharedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;unit&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.mutate</div>
+<div class="tip" id="fs21">val remove : k:&#39;k -&gt; sm:SharedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;unit&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.remove</div>
 
         </div>
         <div class="span3">

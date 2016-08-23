@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>SharedMap<'k, 'v> - Hopac.Plus</title>
+    <title>Map - Hopac.Plus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content=""/>
     <meta name="author" content="Marcus Griep"/>
@@ -35,15 +35,77 @@
 
 
 
-<h1>SharedMap<'k, 'v></h1>
+<h1>Map</h1>
 <p>
   <span>Namespace: Hopac.Plus.Collections</span><br />
 </p>
 <div class="xmldoc">
-<p>Mutation <code>Alt</code>s commit on the write being complete.
-Reads via <code>SharedMap.freeze</code> and <code>SharedMap.fork</code> are not synchronized.</p>
-
 </div>
+
+<!-- Render nested types and modules, if there are any -->
+
+  <h3>Functions and values</h3>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Function or value</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1', 1)" onmouseover="showTip(event, '1', 1)">
+            exchange k v m
+          </code>
+          <div class="tip" id="1">
+            <strong>Signature:</strong> k:&#39;k -&gt; v:&#39;v -&gt; m:Map&lt;&#39;k,&#39;v&gt; -&gt; Map&lt;&#39;k,&#39;v&gt; * &#39;v option<br />
+                          <strong>Type parameters:</strong> 'k, 'v          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L16-16" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '2', 2)" onmouseover="showTip(event, '2', 2)">
+            mutate k v2v m
+          </code>
+          <div class="tip" id="2">
+            <strong>Signature:</strong> k:&#39;k -&gt; v2v:(&#39;v -&gt; &#39;v) -&gt; m:Map&lt;&#39;k,&#39;v&gt; -&gt; Map&lt;&#39;k,&#39;v&gt;<br />
+                          <strong>Type parameters:</strong> 'k, 'v          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L11-11" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '3', 3)" onmouseover="showTip(event, '3', 3)">
+            mutateAndExchange k v2v m
+          </code>
+          <div class="tip" id="3">
+            <strong>Signature:</strong> k:&#39;k -&gt; v2v:(&#39;v -&gt; &#39;v) -&gt; m:Map&lt;&#39;k,&#39;v&gt; -&gt; Map&lt;&#39;k,&#39;v&gt; * &#39;v option<br />
+                          <strong>Type parameters:</strong> 'k, 'v          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L19-19" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
         </div>
         <div class="span3">
