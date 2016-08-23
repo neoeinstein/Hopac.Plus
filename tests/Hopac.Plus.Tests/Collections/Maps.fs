@@ -4,6 +4,7 @@ open Hopac
 open Hopac.Infixes
 open Hopac.Extensions
 open Hopac.Plus.Collections
+open FsCheck
 open Fuchu
 open Swensen.Unquote
 
@@ -41,15 +42,15 @@ let inline tests create ofMap add remove filter map mutate exchange mutateAndExc
       testEquivalence2 Map.add add k v m
     testPropertyJob "remove is equivalent to Map.remove" ^ fun (k,m:MapT) ->
       testEquivalence1 Map.remove remove k m
-    testPropertyJob "filter is equivalent to Map.filter" ^ fun (k2v2b,m:MapT) ->
+    testPropertyJob "filter is equivalent to Map.filter" ^ fun (Fun k2v2b,m:MapT) ->
       testEquivalence1 Map.filter filter k2v2b m
-    testPropertyJob "map is equivalent to Map.map" ^ fun (k2v2v,m:MapT) ->
+    testPropertyJob "map is equivalent to Map.map" ^ fun (Fun k2v2v,m:MapT) ->
       testEquivalence1 Map.map map k2v2v m
-    testPropertyJob "mutate is equivalent to Map.mutate" ^ fun (k,v2v,m:MapT) ->
+    testPropertyJob "mutate is equivalent to Map.mutate" ^ fun (k,Fun v2v,m:MapT) ->
       testEquivalence2 Map.mutate mutate k v2v m
     testPropertyJob "exchange is equivalent to Map.exchange" ^ fun (k,v,m:MapT) ->
       testEquivalenceWithOut2 Map.exchange exchange k v m
-    testPropertyJob "mutateAndExchange is equivalent to Map.mutateAndExchange" ^ fun (k,v2v,m:MapT) ->
+    testPropertyJob "mutateAndExchange is equivalent to Map.mutateAndExchange" ^ fun (k,Fun v2v,m:MapT) ->
       testEquivalenceWithOut2 Map.mutateAndExchange mutateAndExchange k v2v m
     testPropertyJob "add then remove is equivalent to Map.add then Map.remove" ^ fun (k,v,m:MapT) -> job {
       let expected = Map.remove k ^ Map.add k v m

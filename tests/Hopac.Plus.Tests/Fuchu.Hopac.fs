@@ -8,7 +8,7 @@ open Hopac
 let inline private (^) x = x
 
 let testJob name job =
-  testCase name ^ fun _ -> run job
+  testCase name ^ fun () -> run job
 
 let testPropertyJobWithConfig config name x2j =
   testPropertyWithConfig config name ^ Prop.ofJob x2j
