@@ -386,7 +386,6 @@ Target "Default" DoNothing
 "RunTests" ==> "Default"
 "NuGet" ==> "Default"
 
-"Build" ?=> "SourceLink"
 "CopyBinaries" ==> "NuGet"
 
 "NuGet" ==> "BuildPackage"
@@ -394,6 +393,7 @@ Target "Default" DoNothing
 #if MONO
 #else
 if Option.isSome <| Pdbstr.tryFind () then
+  "Build" ?=> "SourceLink" |> ignore
   "SourceLink" ?=> "NuGet" |> ignore
   "SourceLink" ==> "PublishNuGet" |> ignore
 #endif
