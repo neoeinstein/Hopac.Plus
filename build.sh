@@ -38,7 +38,7 @@ yesno() {
 }
 
 set +e
-run $PAKET_BOOTSTRAPPER_EXE
+run $PAKET_BOOTSTRAPPER_EXE --max-file-age=60
 bootstrapper_exitcode=$?
 set -e
 
