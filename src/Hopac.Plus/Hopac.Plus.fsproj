@@ -61,6 +61,8 @@
   <Import Project="..\..\.paket\paket.targets" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" Condition="Exists('AssemblyInfo.fs')" />
+    <Compile Include="Extensions.fsi" />
+    <Compile Include="Extensions.fs" />
     <Compile Include="Collections.fsi" />
     <Compile Include="Collections.fs" />
     <Compile Include="Library.fs" />
