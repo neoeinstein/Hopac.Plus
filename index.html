@@ -34,7 +34,7 @@
         <div class="span9" id="main">
           
 <h1><a name="Hopac-Plus" class="anchor" href="#Hopac-Plus">Hopac.Plus</a></h1>
-<p>Documentation</p>
+<p>A collection of utilities that encapsulate common concurrency patterns and constructs for use with the Hopac concurrency library.</p>
 <div class="row">
   <div class="span1"></div>
   <div class="span6">
@@ -45,8 +45,36 @@
   </div>
   <div class="span1"></div>
 </div>
-<h2><a name="Example" class="anchor" href="#Example">Example</a></h2>
-<p>This example demonstrates using the <code>SharedMap</code>.</p>
+<h2><a name="Extensions" class="anchor" href="#Extensions">Extensions</a></h2>
+<p>Example using the functions in the <code>Hopac.Plus.Extensions</code> namespace:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">Hopac</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">Hopac</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">Plus</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">Extensions</span>
+
+<span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="t">OptionJob</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="f">create</span> <span class="n">42L</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs5', 7)" onmouseover="showTip(event, 'fs5', 7)" class="t">OptionJob</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 8)" onmouseover="showTip(event, 'fs7', 8)" class="f">bindOpt</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs8', 9)" onmouseover="showTip(event, 'fs8', 9)" class="i">i</span> <span class="k">-&gt;</span> <span class="k">if</span> <span onmouseout="hideTip(event, 'fs8', 10)" onmouseover="showTip(event, 'fs8', 10)" class="i">i</span> <span class="o">%</span> <span class="n">2L</span> <span class="o">=</span> <span class="n">0L</span> <span class="k">then</span> <span onmouseout="hideTip(event, 'fs9', 11)" onmouseover="showTip(event, 'fs9', 11)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs8', 12)" onmouseover="showTip(event, 'fs8', 12)" class="i">i</span> <span class="k">else</span> <span onmouseout="hideTip(event, 'fs10', 13)" onmouseover="showTip(event, 'fs10', 13)" class="p">None</span>)
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 14)" onmouseover="showTip(event, 'fs11', 14)" class="t">Job</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs12', 15)" onmouseover="showTip(event, 'fs12', 15)" class="f">map</span> (<span class="k">function</span> <span onmouseout="hideTip(event, 'fs9', 16)" onmouseover="showTip(event, 'fs9', 16)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs13', 17)" onmouseover="showTip(event, 'fs13', 17)" class="i">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs14', 18)" onmouseover="showTip(event, 'fs14', 18)" class="p">Choice1Of2</span> <span onmouseout="hideTip(event, 'fs13', 19)" onmouseover="showTip(event, 'fs13', 19)" class="i">x</span> | <span onmouseout="hideTip(event, 'fs10', 20)" onmouseover="showTip(event, 'fs10', 20)" class="p">None</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs15', 21)" onmouseover="showTip(event, 'fs15', 21)" class="p">Choice2Of2</span> <span class="s">&quot;Not divisible by 2&quot;</span>)
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 22)" onmouseover="showTip(event, 'fs16', 22)" class="t">ChoiceJob</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs17', 23)" onmouseover="showTip(event, 'fs17', 23)" class="f">map</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs8', 24)" onmouseover="showTip(event, 'fs8', 24)" class="i">i</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs8', 25)" onmouseover="showTip(event, 'fs8', 25)" class="i">i</span> <span class="o">/</span> <span class="n">6L</span>)
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 26)" onmouseover="showTip(event, 'fs16', 26)" class="t">ChoiceJob</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs18', 27)" onmouseover="showTip(event, 'fs18', 27)" class="f">fold</span> <span onmouseout="hideTip(event, 'fs9', 28)" onmouseover="showTip(event, 'fs9', 28)" class="p">Some</span> (<span class="k">fun</span> _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs10', 29)" onmouseover="showTip(event, 'fs10', 29)" class="p">None</span>)
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs5', 30)" onmouseover="showTip(event, 'fs5', 30)" class="t">OptionJob</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs19', 31)" onmouseover="showTip(event, 'fs19', 31)" class="f">orDefaultJob</span> <span onmouseout="hideTip(event, 'fs20', 32)" onmouseover="showTip(event, 'fs20', 32)" class="t">Clock</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs21', 33)" onmouseover="showTip(event, 'fs21', 33)" class="i">getSecondsSinceEpoch</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 34)" onmouseover="showTip(event, 'fs22', 34)" class="f">run</span>
+</code></pre></td>
+</tr>
+</table>
+<p>Result:</p>
+<table class="pre"><tr><td><pre><code>7L</code></pre></td></tr></table>
+<h2><a name="SharedMap" class="anchor" href="#SharedMap">SharedMap</a></h2>
+<p>Example using the <code>SharedMap</code>:</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
 <span class="l"> 3: </span>
@@ -72,38 +100,32 @@
 <span class="l">23: </span>
 <span class="l">24: </span>
 <span class="l">25: </span>
-<span class="l">26: </span>
-<span class="l">27: </span>
-<span class="l">28: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="prep">#r</span> <span class="s">&quot;Hopac.Core.dll&quot;</span>
-<span class="prep">#r</span> <span class="s">&quot;Hopac.dll&quot;</span>
-<span class="prep">#r</span> <span class="s">&quot;Hopac.Plus.dll&quot;</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">Hopac</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">Hopac</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">Plus</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">Collections</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 35)" onmouseover="showTip(event, 'fs2', 35)" class="i">Hopac</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 36)" onmouseover="showTip(event, 'fs2', 36)" class="i">Hopac</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs3', 37)" onmouseover="showTip(event, 'fs3', 37)" class="i">Plus</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs23', 38)" onmouseover="showTip(event, 'fs23', 38)" class="i">Collections</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="i">smap</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="f">run</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="t">SharedMap</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 8)" onmouseover="showTip(event, 'fs8', 8)" class="f">create</span> ()
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs24', 39)" onmouseover="showTip(event, 'fs24', 39)" class="i">smap</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs22', 40)" onmouseover="showTip(event, 'fs22', 40)" class="f">run</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs25', 41)" onmouseover="showTip(event, 'fs25', 41)" class="t">SharedMap</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs26', 42)" onmouseover="showTip(event, 'fs26', 42)" class="f">create</span> ()
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs9', 9)" onmouseover="showTip(event, 'fs9', 9)" class="f">printMap</span> <span onmouseout="hideTip(event, 'fs10', 10)" onmouseover="showTip(event, 'fs10', 10)" class="i">smap</span> <span class="o">=</span>
-  <span onmouseout="hideTip(event, 'fs7', 11)" onmouseover="showTip(event, 'fs7', 11)" class="t">SharedMap</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs11', 12)" onmouseover="showTip(event, 'fs11', 12)" class="f">freeze</span> <span onmouseout="hideTip(event, 'fs10', 13)" onmouseover="showTip(event, 'fs10', 13)" class="i">smap</span>
-  <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs12', 14)" onmouseover="showTip(event, 'fs12', 14)" class="t">Job</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs13', 15)" onmouseover="showTip(event, 'fs13', 15)" class="f">map</span> (<span onmouseout="hideTip(event, 'fs14', 16)" onmouseover="showTip(event, 'fs14', 16)" class="f">printfn</span> <span class="s">&quot;</span><span class="pf">%A</span><span class="s">&quot;</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs27', 43)" onmouseover="showTip(event, 'fs27', 43)" class="f">printMap</span> <span onmouseout="hideTip(event, 'fs28', 44)" onmouseover="showTip(event, 'fs28', 44)" class="i">smap</span> <span class="o">=</span>
+  <span onmouseout="hideTip(event, 'fs25', 45)" onmouseover="showTip(event, 'fs25', 45)" class="t">SharedMap</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs29', 46)" onmouseover="showTip(event, 'fs29', 46)" class="f">freeze</span> <span onmouseout="hideTip(event, 'fs28', 47)" onmouseover="showTip(event, 'fs28', 47)" class="i">smap</span>
+  <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 48)" onmouseover="showTip(event, 'fs11', 48)" class="t">Job</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs12', 49)" onmouseover="showTip(event, 'fs12', 49)" class="f">map</span> (<span onmouseout="hideTip(event, 'fs30', 50)" onmouseover="showTip(event, 'fs30', 50)" class="f">printfn</span> <span class="s">&quot;</span><span class="pf">%A</span><span class="s">&quot;</span>)
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs15', 17)" onmouseover="showTip(event, 'fs15', 17)" class="f">example</span> <span onmouseout="hideTip(event, 'fs16', 18)" onmouseover="showTip(event, 'fs16', 18)" class="i">smap</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs17', 19)" onmouseover="showTip(event, 'fs17', 19)" class="i">job</span> {
-  <span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 20)" onmouseover="showTip(event, 'fs18', 20)" class="i">key</span> <span class="o">=</span> <span class="s">&quot;Example&quot;</span>
-  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs7', 21)" onmouseover="showTip(event, 'fs7', 21)" class="t">SharedMap</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs19', 22)" onmouseover="showTip(event, 'fs19', 22)" class="f">add</span> <span onmouseout="hideTip(event, 'fs18', 23)" onmouseover="showTip(event, 'fs18', 23)" class="i">key</span> <span class="n">10</span> <span onmouseout="hideTip(event, 'fs16', 24)" onmouseover="showTip(event, 'fs16', 24)" class="i">smap</span>
-  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs9', 25)" onmouseover="showTip(event, 'fs9', 25)" class="f">printMap</span> <span onmouseout="hideTip(event, 'fs16', 26)" onmouseover="showTip(event, 'fs16', 26)" class="i">smap</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs31', 51)" onmouseover="showTip(event, 'fs31', 51)" class="f">example</span> <span onmouseout="hideTip(event, 'fs32', 52)" onmouseover="showTip(event, 'fs32', 52)" class="i">smap</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs33', 53)" onmouseover="showTip(event, 'fs33', 53)" class="i">job</span> {
+  <span class="k">let</span> <span onmouseout="hideTip(event, 'fs34', 54)" onmouseover="showTip(event, 'fs34', 54)" class="i">key</span> <span class="o">=</span> <span class="s">&quot;Example&quot;</span>
+  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs25', 55)" onmouseover="showTip(event, 'fs25', 55)" class="t">SharedMap</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs35', 56)" onmouseover="showTip(event, 'fs35', 56)" class="f">add</span> <span onmouseout="hideTip(event, 'fs34', 57)" onmouseover="showTip(event, 'fs34', 57)" class="i">key</span> <span class="n">10</span> <span onmouseout="hideTip(event, 'fs32', 58)" onmouseover="showTip(event, 'fs32', 58)" class="i">smap</span>
+  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs27', 59)" onmouseover="showTip(event, 'fs27', 59)" class="f">printMap</span> <span onmouseout="hideTip(event, 'fs32', 60)" onmouseover="showTip(event, 'fs32', 60)" class="i">smap</span>
 
-  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs7', 27)" onmouseover="showTip(event, 'fs7', 27)" class="t">SharedMap</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs19', 28)" onmouseover="showTip(event, 'fs19', 28)" class="f">add</span> <span onmouseout="hideTip(event, 'fs18', 29)" onmouseover="showTip(event, 'fs18', 29)" class="i">key</span> <span class="n">20</span> <span onmouseout="hideTip(event, 'fs16', 30)" onmouseover="showTip(event, 'fs16', 30)" class="i">smap</span>
-  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs9', 31)" onmouseover="showTip(event, 'fs9', 31)" class="f">printMap</span> <span onmouseout="hideTip(event, 'fs16', 32)" onmouseover="showTip(event, 'fs16', 32)" class="i">smap</span>
+  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs25', 61)" onmouseover="showTip(event, 'fs25', 61)" class="t">SharedMap</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs35', 62)" onmouseover="showTip(event, 'fs35', 62)" class="f">add</span> <span onmouseout="hideTip(event, 'fs34', 63)" onmouseover="showTip(event, 'fs34', 63)" class="i">key</span> <span class="n">20</span> <span onmouseout="hideTip(event, 'fs32', 64)" onmouseover="showTip(event, 'fs32', 64)" class="i">smap</span>
+  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs27', 65)" onmouseover="showTip(event, 'fs27', 65)" class="f">printMap</span> <span onmouseout="hideTip(event, 'fs32', 66)" onmouseover="showTip(event, 'fs32', 66)" class="i">smap</span>
 
-  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs7', 33)" onmouseover="showTip(event, 'fs7', 33)" class="t">SharedMap</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs20', 34)" onmouseover="showTip(event, 'fs20', 34)" class="f">mutate</span> <span onmouseout="hideTip(event, 'fs18', 35)" onmouseover="showTip(event, 'fs18', 35)" class="i">key</span> (<span class="o">(*)</span> <span class="n">5</span>) <span onmouseout="hideTip(event, 'fs16', 36)" onmouseover="showTip(event, 'fs16', 36)" class="i">smap</span>
-  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs9', 37)" onmouseover="showTip(event, 'fs9', 37)" class="f">printMap</span> <span onmouseout="hideTip(event, 'fs16', 38)" onmouseover="showTip(event, 'fs16', 38)" class="i">smap</span>
+  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs25', 67)" onmouseover="showTip(event, 'fs25', 67)" class="t">SharedMap</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs36', 68)" onmouseover="showTip(event, 'fs36', 68)" class="f">mutate</span> <span onmouseout="hideTip(event, 'fs34', 69)" onmouseover="showTip(event, 'fs34', 69)" class="i">key</span> (<span class="o">(*)</span> <span class="n">5</span>) <span onmouseout="hideTip(event, 'fs32', 70)" onmouseover="showTip(event, 'fs32', 70)" class="i">smap</span>
+  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs27', 71)" onmouseover="showTip(event, 'fs27', 71)" class="f">printMap</span> <span onmouseout="hideTip(event, 'fs32', 72)" onmouseover="showTip(event, 'fs32', 72)" class="i">smap</span>
 
-  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs7', 39)" onmouseover="showTip(event, 'fs7', 39)" class="t">SharedMap</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs21', 40)" onmouseover="showTip(event, 'fs21', 40)" class="f">remove</span> <span onmouseout="hideTip(event, 'fs18', 41)" onmouseover="showTip(event, 'fs18', 41)" class="i">key</span> <span onmouseout="hideTip(event, 'fs16', 42)" onmouseover="showTip(event, 'fs16', 42)" class="i">smap</span>
-  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs9', 43)" onmouseover="showTip(event, 'fs9', 43)" class="f">printMap</span> <span onmouseout="hideTip(event, 'fs16', 44)" onmouseover="showTip(event, 'fs16', 44)" class="i">smap</span>
+  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs25', 73)" onmouseover="showTip(event, 'fs25', 73)" class="t">SharedMap</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs37', 74)" onmouseover="showTip(event, 'fs37', 74)" class="f">remove</span> <span onmouseout="hideTip(event, 'fs34', 75)" onmouseover="showTip(event, 'fs34', 75)" class="i">key</span> <span onmouseout="hideTip(event, 'fs32', 76)" onmouseover="showTip(event, 'fs32', 76)" class="i">smap</span>
+  <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs27', 77)" onmouseover="showTip(event, 'fs27', 77)" class="f">printMap</span> <span onmouseout="hideTip(event, 'fs32', 78)" onmouseover="showTip(event, 'fs32', 78)" class="i">smap</span>
 }
 
-<span onmouseout="hideTip(event, 'fs6', 45)" onmouseover="showTip(event, 'fs6', 45)" class="f">run</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs15', 46)" onmouseover="showTip(event, 'fs15', 46)" class="f">example</span> <span onmouseout="hideTip(event, 'fs5', 47)" onmouseover="showTip(event, 'fs5', 47)" class="i">smap</span>
+<span onmouseout="hideTip(event, 'fs22', 79)" onmouseover="showTip(event, 'fs22', 79)" class="f">run</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs31', 80)" onmouseover="showTip(event, 'fs31', 80)" class="f">example</span> <span onmouseout="hideTip(event, 'fs24', 81)" onmouseover="showTip(event, 'fs24', 81)" class="i">smap</span>
 </code></pre></td>
 </tr>
 </table>
@@ -129,24 +151,40 @@ redistribution for both commercial and non-commercial purposes. For more informa
 <div class="tip" id="fs1">namespace Hopac</div>
 <div class="tip" id="fs2">Multiple items<br />module Hopac<br /><br />from Hopac<br /><br />--------------------<br />namespace Hopac</div>
 <div class="tip" id="fs3">namespace Hopac.Plus</div>
-<div class="tip" id="fs4">namespace Hopac.Plus.Collections</div>
-<div class="tip" id="fs5">val smap : SharedMap&lt;string,int&gt;<br /><br />Full name: Index.smap</div>
-<div class="tip" id="fs6">val run : Job&lt;&#39;x&gt; -&gt; &#39;x<br /><br />Full name: Hopac.Hopac.run</div>
-<div class="tip" id="fs7">Multiple items<br />module SharedMap<br /><br />from Hopac.Plus.Collections<br /><br />--------------------<br />type SharedMap&lt;&#39;k,&#39;v (requires comparison)&gt;<br /><br />Full name: Hopac.Plus.Collections.SharedMap&lt;_,_&gt;</div>
-<div class="tip" id="fs8">val create : unit -&gt; Job&lt;SharedMap&lt;&#39;k,&#39;v&gt;&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.create</div>
-<div class="tip" id="fs9">val printMap : smap:SharedMap&lt;&#39;a,&#39;b&gt; -&gt; Job&lt;unit&gt; (requires comparison)<br /><br />Full name: Index.printMap</div>
-<div class="tip" id="fs10">val smap : SharedMap&lt;&#39;a,&#39;b&gt; (requires comparison)</div>
-<div class="tip" id="fs11">val freeze : sm:SharedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;Map&lt;&#39;k,&#39;v&gt;&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.freeze</div>
-<div class="tip" id="fs12">type Job&lt;&#39;T&gt; =<br /><br />Full name: Hopac.Job&lt;_&gt;</div>
-<div class="tip" id="fs13">val map : (&#39;x -&gt; &#39;y) -&gt; Job&lt;&#39;x&gt; -&gt; Job&lt;&#39;y&gt;<br /><br />Full name: Hopac.Job.map</div>
-<div class="tip" id="fs14">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
-<div class="tip" id="fs15">val example : smap:SharedMap&lt;string,int&gt; -&gt; Job&lt;unit&gt;<br /><br />Full name: Index.example</div>
-<div class="tip" id="fs16">val smap : SharedMap&lt;string,int&gt;</div>
-<div class="tip" id="fs17">val job : JobBuilder<br /><br />Full name: Hopac.Hopac.job</div>
-<div class="tip" id="fs18">val key : string</div>
-<div class="tip" id="fs19">val add : k:&#39;k -&gt; v:&#39;v -&gt; sm:SharedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;unit&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.add</div>
-<div class="tip" id="fs20">val mutate : k:&#39;k -&gt; v2v:(&#39;v -&gt; &#39;v) -&gt; sm:SharedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;unit&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.mutate</div>
-<div class="tip" id="fs21">val remove : k:&#39;k -&gt; sm:SharedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;unit&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.remove</div>
+<div class="tip" id="fs4">namespace Hopac.Plus.Extensions</div>
+<div class="tip" id="fs5">module OptionJob<br /><br />from Hopac.Plus.Extensions</div>
+<div class="tip" id="fs6">val create : x:&#39;x -&gt; Job&lt;&#39;x option&gt;<br /><br />Full name: Hopac.Plus.Extensions.OptionJob.create</div>
+<div class="tip" id="fs7">val bindOpt : x2yO:(&#39;x -&gt; &#39;y option) -&gt; xOJ:Job&lt;&#39;x option&gt; -&gt; Job&lt;&#39;y option&gt;<br /><br />Full name: Hopac.Plus.Extensions.OptionJob.bindOpt</div>
+<div class="tip" id="fs8">val i : int64</div>
+<div class="tip" id="fs9">union case Option.Some: Value: &#39;T -&gt; Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs10">union case Option.None: Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs11">type Job&lt;&#39;T&gt; =<br /><br />Full name: Hopac.Job&lt;_&gt;</div>
+<div class="tip" id="fs12">val map : (&#39;x -&gt; &#39;y) -&gt; Job&lt;&#39;x&gt; -&gt; Job&lt;&#39;y&gt;<br /><br />Full name: Hopac.Job.map</div>
+<div class="tip" id="fs13">val x : int64</div>
+<div class="tip" id="fs14">union case Choice.Choice1Of2: &#39;T1 -&gt; Choice&lt;&#39;T1,&#39;T2&gt;</div>
+<div class="tip" id="fs15">union case Choice.Choice2Of2: &#39;T2 -&gt; Choice&lt;&#39;T1,&#39;T2&gt;</div>
+<div class="tip" id="fs16">module ChoiceJob<br /><br />from Hopac.Plus.Extensions</div>
+<div class="tip" id="fs17">val map : x2a:(&#39;x -&gt; &#39;a) -&gt; xyCJ:Job&lt;Choice&lt;&#39;x,&#39;y&gt;&gt; -&gt; Job&lt;Choice&lt;&#39;a,&#39;y&gt;&gt;<br /><br />Full name: Hopac.Plus.Extensions.ChoiceJob.map</div>
+<div class="tip" id="fs18">val fold : x2t:(&#39;x -&gt; &#39;t) -&gt; y2t:(&#39;y -&gt; &#39;t) -&gt; xyCJ:Job&lt;Choice&lt;&#39;x,&#39;y&gt;&gt; -&gt; Job&lt;&#39;t&gt;<br /><br />Full name: Hopac.Plus.Extensions.ChoiceJob.fold</div>
+<div class="tip" id="fs19">val orDefaultJob : xJ:Job&lt;&#39;x&gt; -&gt; xOJ:Job&lt;&#39;x option&gt; -&gt; Job&lt;&#39;x&gt;<br /><br />Full name: Hopac.Plus.Extensions.OptionJob.orDefaultJob</div>
+<div class="tip" id="fs20">module Clock<br /><br />from Hopac.Plus.Extensions</div>
+<div class="tip" id="fs21">val getSecondsSinceEpoch : Job&lt;SecondsSinceEpoch&gt;<br /><br />Full name: Hopac.Plus.Extensions.Clock.getSecondsSinceEpoch</div>
+<div class="tip" id="fs22">val run : Job&lt;&#39;x&gt; -&gt; &#39;x<br /><br />Full name: Hopac.Hopac.run</div>
+<div class="tip" id="fs23">namespace Hopac.Plus.Collections</div>
+<div class="tip" id="fs24">val smap : SharedMap&lt;string,int&gt;<br /><br />Full name: Index.smap</div>
+<div class="tip" id="fs25">Multiple items<br />module SharedMap<br /><br />from Hopac.Plus.Collections<br /><br />--------------------<br />type SharedMap&lt;&#39;k,&#39;v (requires comparison)&gt;<br /><br />Full name: Hopac.Plus.Collections.SharedMap&lt;_,_&gt;</div>
+<div class="tip" id="fs26">val create : unit -&gt; Job&lt;SharedMap&lt;&#39;k,&#39;v&gt;&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.create</div>
+<div class="tip" id="fs27">val printMap : smap:SharedMap&lt;&#39;a,&#39;b&gt; -&gt; Job&lt;unit&gt; (requires comparison)<br /><br />Full name: Index.printMap</div>
+<div class="tip" id="fs28">val smap : SharedMap&lt;&#39;a,&#39;b&gt; (requires comparison)</div>
+<div class="tip" id="fs29">val freeze : sm:SharedMap&lt;&#39;k,&#39;v&gt; -&gt; Job&lt;Map&lt;&#39;k,&#39;v&gt;&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.freeze</div>
+<div class="tip" id="fs30">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
+<div class="tip" id="fs31">val example : smap:SharedMap&lt;string,int&gt; -&gt; Job&lt;unit&gt;<br /><br />Full name: Index.example</div>
+<div class="tip" id="fs32">val smap : SharedMap&lt;string,int&gt;</div>
+<div class="tip" id="fs33">val job : JobBuilder<br /><br />Full name: Hopac.Hopac.job</div>
+<div class="tip" id="fs34">val key : string</div>
+<div class="tip" id="fs35">val add : k:&#39;k -&gt; v:&#39;v -&gt; sm:SharedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;unit&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.add</div>
+<div class="tip" id="fs36">val mutate : k:&#39;k -&gt; v2v:(&#39;v -&gt; &#39;v) -&gt; sm:SharedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;unit&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.mutate</div>
+<div class="tip" id="fs37">val remove : k:&#39;k -&gt; sm:SharedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;unit&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.remove</div>
 
         </div>
         <div class="span3">
@@ -154,12 +192,13 @@ redistribution for both commercial and non-commercial purposes. For more informa
           <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
             <li class="nav-header">Hopac.Plus</li>
             <li><a href="/Hopac.Plus/index.html">Home page</a></li>
+            <li><a href="http://nuget.org/packages/Hopac.Plus"><img src="https://img.shields.io/nuget/v/Hopac.Plus.svg?maxAge=3600" alt="NuGet"></a></li>
+            <li><a href="https://travis-ci.org/neoeinstein/Hopac.Plus"><img src="https://img.shields.io/travis/neoeinstein/Hopac.Plus/master.svg?maxAge=3600" alt="Travis branch"></a></li>
             <li class="divider"></li>
             <li><a href="http://nuget.org/packages/Hopac.Plus">Get Library via NuGet</a></li>
             <li><a href="https://github.com/neoeinstein/Hopac.Plus">Source Code on GitHub</a></li>
             <li><a href="/Hopac.Plus/license.html">License</a></li>
             <li><a href="/Hopac.Plus/release-notes.html">Release Notes</a></li>
-            
             <li class="nav-header">Getting started</li>
             <li><a href="/Hopac.Plus/tutorial.html">Sample tutorial</a></li>
 

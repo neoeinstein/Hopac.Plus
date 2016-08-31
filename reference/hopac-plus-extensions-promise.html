@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>Map - Hopac.Plus</title>
+    <title>Promise - Hopac.Plus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content=""/>
     <meta name="author" content="Marcus Griep"/>
@@ -35,9 +35,9 @@
 
 
 
-<h1>Map</h1>
+<h1>Promise</h1>
 <p>
-  <span>Namespace: Hopac.Plus.Collections</span><br />
+  <span>Namespace: Hopac.Plus.Extensions</span><br />
 </p>
 <div class="xmldoc">
 </div>
@@ -53,15 +53,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1', 1)" onmouseover="showTip(event, '1', 1)">
-            exchange k v m
+          <code onmouseout="hideTip(event, '63', 63)" onmouseover="showTip(event, '63', 63)">
+            nothing 
           </code>
-          <div class="tip" id="1">
-            <strong>Signature:</strong> k:&#39;k -&gt; v:&#39;v -&gt; m:Map&lt;&#39;k,&#39;v&gt; -&gt; Map&lt;&#39;k,&#39;v&gt; * &#39;v option<br />
-                          <strong>Type parameters:</strong> 'k, 'v          </div>
+          <div class="tip" id="63">
+            <strong>Signature:</strong> Promise&lt;&#39;x&gt;<br />
+                          <strong>Type parameters:</strong> 'x          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L16-16" class="github-link">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Extensions.fs#L35-35" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -71,15 +71,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '2', 2)" onmouseover="showTip(event, '2', 2)">
-            mutate k v2v m
+          <code onmouseout="hideTip(event, '64', 64)" onmouseover="showTip(event, '64', 64)">
+            ofJob xJ
           </code>
-          <div class="tip" id="2">
-            <strong>Signature:</strong> k:&#39;k -&gt; v2v:(&#39;v -&gt; &#39;v) -&gt; m:Map&lt;&#39;k,&#39;v&gt; -&gt; Map&lt;&#39;k,&#39;v&gt;<br />
-                          <strong>Type parameters:</strong> 'k, 'v          </div>
+          <div class="tip" id="64">
+            <strong>Signature:</strong> xJ:Job&lt;&#39;x&gt; -&gt; Promise&lt;&#39;x&gt;<br />
+                          <strong>Type parameters:</strong> 'x          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L11-11" class="github-link">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Extensions.fs#L37-37" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -89,15 +89,51 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '3', 3)" onmouseover="showTip(event, '3', 3)">
-            mutateAndExchange k v2v m
+          <code onmouseout="hideTip(event, '65', 65)" onmouseover="showTip(event, '65', 65)">
+            raises ex
           </code>
-          <div class="tip" id="3">
-            <strong>Signature:</strong> k:&#39;k -&gt; v2v:(&#39;v -&gt; &#39;v) -&gt; m:Map&lt;&#39;k,&#39;v&gt; -&gt; Map&lt;&#39;k,&#39;v&gt; * &#39;v option<br />
-                          <strong>Type parameters:</strong> 'k, 'v          </div>
+          <div class="tip" id="65">
+            <strong>Signature:</strong> ex:exn -&gt; Promise&lt;&#39;x&gt;<br />
+                          <strong>Type parameters:</strong> 'x          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L19-19" class="github-link">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Extensions.fs#L39-39" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '66', 66)" onmouseover="showTip(event, '66', 66)">
+            unit 
+          </code>
+          <div class="tip" id="66">
+            <strong>Signature:</strong> Promise&lt;unit&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Extensions.fs#L38-38" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '67', 67)" onmouseover="showTip(event, '67', 67)">
+            value x
+          </code>
+          <div class="tip" id="67">
+            <strong>Signature:</strong> x:&#39;x -&gt; Promise&lt;&#39;x&gt;<br />
+                          <strong>Type parameters:</strong> 'x          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Extensions.fs#L36-36" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>

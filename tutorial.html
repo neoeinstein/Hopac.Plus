@@ -105,7 +105,7 @@
 <div class="tip" id="fs8">val create : unit -&gt; Job&lt;SharedMap&lt;&#39;k,&#39;v&gt;&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.create</div>
 <div class="tip" id="fs9">val printMap : smap:SharedMap&lt;&#39;a,&#39;b&gt; -&gt; Job&lt;unit&gt; (requires comparison)<br /><br />Full name: Tutorial.printMap</div>
 <div class="tip" id="fs10">val smap : SharedMap&lt;&#39;a,&#39;b&gt; (requires comparison)</div>
-<div class="tip" id="fs11">val freeze : sm:SharedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;Map&lt;&#39;k,&#39;v&gt;&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.freeze</div>
+<div class="tip" id="fs11">val freeze : sm:SharedMap&lt;&#39;k,&#39;v&gt; -&gt; Job&lt;Map&lt;&#39;k,&#39;v&gt;&gt; (requires comparison)<br /><br />Full name: Hopac.Plus.Collections.SharedMap.freeze</div>
 <div class="tip" id="fs12">type Job&lt;&#39;T&gt; =<br /><br />Full name: Hopac.Job&lt;_&gt;</div>
 <div class="tip" id="fs13">val map : (&#39;x -&gt; &#39;y) -&gt; Job&lt;&#39;x&gt; -&gt; Job&lt;&#39;y&gt;<br /><br />Full name: Hopac.Job.map</div>
 <div class="tip" id="fs14">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
@@ -123,12 +123,13 @@
           <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
             <li class="nav-header">Hopac.Plus</li>
             <li><a href="/Hopac.Plus/index.html">Home page</a></li>
+            <li><a href="http://nuget.org/packages/Hopac.Plus"><img src="https://img.shields.io/nuget/v/Hopac.Plus.svg?maxAge=3600" alt="NuGet"></a></li>
+            <li><a href="https://travis-ci.org/neoeinstein/Hopac.Plus"><img src="https://img.shields.io/travis/neoeinstein/Hopac.Plus/master.svg?maxAge=3600" alt="Travis branch"></a></li>
             <li class="divider"></li>
             <li><a href="http://nuget.org/packages/Hopac.Plus">Get Library via NuGet</a></li>
             <li><a href="https://github.com/neoeinstein/Hopac.Plus">Source Code on GitHub</a></li>
             <li><a href="/Hopac.Plus/license.html">License</a></li>
             <li><a href="/Hopac.Plus/release-notes.html">Release Notes</a></li>
-            
             <li class="nav-header">Getting started</li>
             <li><a href="/Hopac.Plus/tutorial.html">Sample tutorial</a></li>
 

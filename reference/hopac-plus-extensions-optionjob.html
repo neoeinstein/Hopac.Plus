@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>SerializedMap - Hopac.Plus</title>
+    <title>OptionJob - Hopac.Plus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content=""/>
     <meta name="author" content="Marcus Griep"/>
@@ -35,9 +35,9 @@
 
 
 
-<h1>SerializedMap</h1>
+<h1>OptionJob</h1>
 <p>
-  <span>Namespace: Hopac.Plus.Collections</span><br />
+  <span>Namespace: Hopac.Plus.Extensions</span><br />
 </p>
 <div class="xmldoc">
 </div>
@@ -53,15 +53,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '4', 4)" onmouseover="showTip(event, '4', 4)">
-            add k v sm
+          <code onmouseout="hideTip(event, '53', 53)" onmouseover="showTip(event, '53', 53)">
+            bind x2yOJ xOJ
           </code>
-          <div class="tip" id="4">
-            <strong>Signature:</strong> k:&#39;k -&gt; v:&#39;v -&gt; sm:SerializedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;unit&gt;<br />
-                          <strong>Type parameters:</strong> 'k, 'v          </div>
+          <div class="tip" id="53">
+            <strong>Signature:</strong> x2yOJ:(&#39;x -&gt; &#39;?7221) -&gt; xOJ:Job&lt;&#39;x option&gt; -&gt; Job&lt;&#39;y option&gt;<br />
+                          <strong>Type parameters:</strong> 'x, '?7221, 'y          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L34-34" class="github-link">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Extensions.fs#L81-81" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -71,15 +71,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '5', 5)" onmouseover="showTip(event, '5', 5)">
-            create ()
+          <code onmouseout="hideTip(event, '54', 54)" onmouseover="showTip(event, '54', 54)">
+            bindJob x2yJ xOJ
           </code>
-          <div class="tip" id="5">
-            <strong>Signature:</strong> unit -&gt; SerializedMap&lt;&#39;k,&#39;v&gt;<br />
-                          <strong>Type parameters:</strong> 'k, 'v          </div>
+          <div class="tip" id="54">
+            <strong>Signature:</strong> x2yJ:(&#39;x -&gt; &#39;?7228) -&gt; xOJ:Job&lt;&#39;x option&gt; -&gt; Job&lt;&#39;y option&gt;<br />
+                          <strong>Type parameters:</strong> 'x, '?7228, 'y          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L32-32" class="github-link">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Extensions.fs#L91-91" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -89,15 +89,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '6', 6)" onmouseover="showTip(event, '6', 6)">
-            exchange k v sm
+          <code onmouseout="hideTip(event, '55', 55)" onmouseover="showTip(event, '55', 55)">
+            bindOpt x2yO xOJ
           </code>
-          <div class="tip" id="6">
-            <strong>Signature:</strong> k:&#39;k -&gt; v:&#39;v -&gt; sm:SerializedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;&#39;v option&gt;<br />
-                          <strong>Type parameters:</strong> 'k, 'v          </div>
+          <div class="tip" id="55">
+            <strong>Signature:</strong> x2yO:(&#39;x -&gt; &#39;y option) -&gt; xOJ:Job&lt;&#39;x option&gt; -&gt; Job&lt;&#39;y option&gt;<br />
+                          <strong>Type parameters:</strong> 'x, 'y          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L41-41" class="github-link">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Extensions.fs#L86-86" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -107,15 +107,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '7', 7)" onmouseover="showTip(event, '7', 7)">
-            filter k2v2b sm
+          <code onmouseout="hideTip(event, '56', 56)" onmouseover="showTip(event, '56', 56)">
+            create x
           </code>
-          <div class="tip" id="7">
-            <strong>Signature:</strong> k2v2b:(&#39;k -&gt; &#39;v -&gt; bool) -&gt; sm:SerializedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;unit&gt;<br />
-                          <strong>Type parameters:</strong> 'k, 'v          </div>
+          <div class="tip" id="56">
+            <strong>Signature:</strong> x:&#39;x -&gt; Job&lt;&#39;x option&gt;<br />
+                          <strong>Type parameters:</strong> 'x          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L37-37" class="github-link">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Extensions.fs#L76-76" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -125,15 +125,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '8', 8)" onmouseover="showTip(event, '8', 8)">
-            fork sm
+          <code onmouseout="hideTip(event, '57', 57)" onmouseover="showTip(event, '57', 57)">
+            map x2y xOJ
           </code>
-          <div class="tip" id="8">
-            <strong>Signature:</strong> sm:SerializedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;SerializedMap&lt;&#39;k,&#39;v&gt;&gt;<br />
-                          <strong>Type parameters:</strong> 'k, 'v          </div>
+          <div class="tip" id="57">
+            <strong>Signature:</strong> x2y:(&#39;x -&gt; &#39;y) -&gt; xOJ:Job&lt;&#39;x option&gt; -&gt; Job&lt;&#39;y option&gt;<br />
+                          <strong>Type parameters:</strong> 'x, 'y          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L46-46" class="github-link">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Extensions.fs#L96-96" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -143,15 +143,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '9', 9)" onmouseover="showTip(event, '9', 9)">
-            freeze sm
+          <code onmouseout="hideTip(event, '58', 58)" onmouseover="showTip(event, '58', 58)">
+            none 
           </code>
-          <div class="tip" id="9">
-            <strong>Signature:</strong> sm:SerializedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;Map&lt;&#39;k,&#39;v&gt;&gt;<br />
-                          <strong>Type parameters:</strong> 'k, 'v          </div>
+          <div class="tip" id="58">
+            <strong>Signature:</strong> Job&lt;&#39;x option&gt;<br />
+                          <strong>Type parameters:</strong> 'x          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L45-45" class="github-link">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Extensions.fs#L77-77" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -161,15 +161,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '10', 10)" onmouseover="showTip(event, '10', 10)">
-            map k2v2v sm
+          <code onmouseout="hideTip(event, '59', 59)" onmouseover="showTip(event, '59', 59)">
+            ofJob xJ
           </code>
-          <div class="tip" id="10">
-            <strong>Signature:</strong> k2v2v:(&#39;k -&gt; &#39;v -&gt; &#39;v) -&gt; sm:SerializedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;unit&gt;<br />
-                          <strong>Type parameters:</strong> 'k, 'v          </div>
+          <div class="tip" id="59">
+            <strong>Signature:</strong> xJ:Job&lt;&#39;x&gt; -&gt; Job&lt;&#39;x option&gt;<br />
+                          <strong>Type parameters:</strong> 'x          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L38-38" class="github-link">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Extensions.fs#L79-79" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -179,15 +179,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '11', 11)" onmouseover="showTip(event, '11', 11)">
-            mutate k v2v sm
+          <code onmouseout="hideTip(event, '60', 60)" onmouseover="showTip(event, '60', 60)">
+            ofOption xO
           </code>
-          <div class="tip" id="11">
-            <strong>Signature:</strong> k:&#39;k -&gt; v2v:(&#39;v -&gt; &#39;v) -&gt; sm:SerializedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;unit&gt;<br />
-                          <strong>Type parameters:</strong> 'k, 'v          </div>
+          <div class="tip" id="60">
+            <strong>Signature:</strong> xO:&#39;x option -&gt; Job&lt;&#39;x option&gt;<br />
+                          <strong>Type parameters:</strong> 'x          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L39-39" class="github-link">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Extensions.fs#L78-78" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -197,15 +197,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '12', 12)" onmouseover="showTip(event, '12', 12)">
-            mutateAndExchange k v2v sm
+          <code onmouseout="hideTip(event, '61', 61)" onmouseover="showTip(event, '61', 61)">
+            orDefault x xOJ
           </code>
-          <div class="tip" id="12">
-            <strong>Signature:</strong> k:&#39;k -&gt; v2v:(&#39;v -&gt; &#39;v) -&gt; sm:SerializedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;&#39;v option&gt;<br />
-                          <strong>Type parameters:</strong> 'k, 'v          </div>
+          <div class="tip" id="61">
+            <strong>Signature:</strong> x:&#39;x -&gt; xOJ:Job&lt;&#39;x option&gt; -&gt; Job&lt;&#39;x&gt;<br />
+                          <strong>Type parameters:</strong> 'x          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L42-42" class="github-link">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Extensions.fs#L99-99" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -215,33 +215,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '13', 13)" onmouseover="showTip(event, '13', 13)">
-            ofMap m
+          <code onmouseout="hideTip(event, '62', 62)" onmouseover="showTip(event, '62', 62)">
+            orDefaultJob xJ xOJ
           </code>
-          <div class="tip" id="13">
-            <strong>Signature:</strong> m:Map&lt;&#39;k,&#39;v&gt; -&gt; SerializedMap&lt;&#39;k,&#39;v&gt;<br />
-                          <strong>Type parameters:</strong> 'k, 'v          </div>
+          <div class="tip" id="62">
+            <strong>Signature:</strong> xJ:Job&lt;&#39;x&gt; -&gt; xOJ:Job&lt;&#39;x option&gt; -&gt; Job&lt;&#39;x&gt;<br />
+                          <strong>Type parameters:</strong> 'x          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L31-31" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '14', 14)" onmouseover="showTip(event, '14', 14)">
-            remove k sm
-          </code>
-          <div class="tip" id="14">
-            <strong>Signature:</strong> k:&#39;k -&gt; sm:SerializedMap&lt;&#39;k,&#39;v&gt; -&gt; Alt&lt;unit&gt;<br />
-                          <strong>Type parameters:</strong> 'k, 'v          </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Collections.fs#L35-35" class="github-link">
+            <a href="https://github.com/neoeinstein/Hopac.Plus/tree/master/src/Hopac.Plus/Extensions.fs#L101-101" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
