@@ -119,7 +119,7 @@ module SharedMap =
     sm.mutateOutCh *<-=>- fun ivar -> (k,v2v,ivar)
 
   let freeze sm =
-    Alt.always ^ System.Threading.Volatile.Read sm.map
+    Job.result ^ System.Threading.Volatile.Read sm.map
 
   let fork sm =
     ofMap ^ System.Threading.Volatile.Read sm.map

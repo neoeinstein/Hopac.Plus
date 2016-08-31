@@ -47,5 +47,5 @@ module SharedMap =
   val exchange :          k:'k ->   v:       'v  -> sm:SharedMap<'k,'v> -> Alt<'v option>
   val mutateAndExchange : k:'k -> v2v:('v -> 'v) -> sm:SharedMap<'k,'v> -> Alt<'v option>
 
-  val freeze : sm:SharedMap<'k,'v> -> Alt<Map<'k,'v>>
+  val freeze : sm:SharedMap<'k,'v> -> Job<Map<'k,'v>>
   val fork :   sm:SharedMap<'k,'v> -> Job<SharedMap<'k,'v>>
