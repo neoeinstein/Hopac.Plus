@@ -18,9 +18,7 @@ module StopwatchTicks =
   let toTimeSpanTicks t = t * System.TimeSpan.TicksPerSecond / System.Diagnostics.Stopwatch.Frequency
   let toMicroseconds t = t / swTicksPerMicrosecond
   let toMilliseconds t = t / swTicksPerMillisecond
-
-  let toTimeSpan =
-    System.TimeSpan.FromTicks << toTimeSpanTicks
+  let toTimeSpan t = System.TimeSpan.FromTicks ^ toTimeSpanTicks t
 
 type SecondsSinceEpoch = int64
 type TimeSpanTicksSinceEpoch = int64
@@ -57,7 +55,7 @@ module Alt =
       let ts = StopwatchTicks.getTimestamp()
       Job.start
         <| nack ^=> fun () -> onNackJ     ^ StopwatchTicks.getTimestamp() - ts
-        >>-. xA ^=> fun  x -> onCompleteJ ^ StopwatchTicks.getTimestamp() - ts; x
+        >>-. xA ^=> fun  x -> onCompleteJ ^ StopwatchTicks.getTimestamp() - ts >>- fun () -> x
 
 module Job =
   let inline value x = Job.result x
@@ -72,7 +70,7 @@ module Job =
   let timeJob onCompleteJ xJ =
     Job.delay ^ fun () ->
       let ts = StopwatchTicks.getTimestamp()
-      xJ >>= fun x -> onCompleteJ (StopwatchTicks.getTimestamp() - ts); x
+      xJ >>= fun x -> onCompleteJ (StopwatchTicks.getTimestamp() - ts) >>- fun () -> x
 
 module OptionJob =
   let inline create x = Job.result ^ Some x

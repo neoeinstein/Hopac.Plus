@@ -7,7 +7,9 @@ type StopwatchTicks = int64
 [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
 module StopwatchTicks =
   val toTimeSpanTicks : StopwatchTicks -> int64
-  val toTimeSpan : (StopwatchTicks -> System.TimeSpan)
+  val toMicroseconds : StopwatchTicks -> int64
+  val toMilliseconds : StopwatchTicks -> int64
+  val toTimeSpan : StopwatchTicks -> System.TimeSpan
 
 type SecondsSinceEpoch = int64
 type TimeSpanTicksSinceEpoch = int64
