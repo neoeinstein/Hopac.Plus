@@ -2,12 +2,15 @@
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin/Hopac.Plus"
+#r "Hopac.Core.dll"
+#r "Hopac.dll"
+#r "Hopac.Plus.dll"
 
 (**
 Hopac.Plus
 ======================
 
-Documentation
+A collection of utilities that encapsulate common concurrency patterns and constructs for use with the Hopac concurrency library.
 
 <div class="row">
   <div class="span1"></div>
@@ -20,15 +23,36 @@ Documentation
   <div class="span1"></div>
 </div>
 
-Example
--------
+Extensions
+---------
 
-This example demonstrates using the `SharedMap`.
+Example using the functions in the `Hopac.Plus.Extensions` namespace:
 
 *)
-#r "Hopac.Core.dll"
-#r "Hopac.dll"
-#r "Hopac.Plus.dll"
+(*** define-output: extensions ***)
+open Hopac
+open Hopac.Plus.Extensions
+
+OptionJob.create 42L
+|> OptionJob.bindOpt (fun i -> if i % 2L = 0L then Some i else None)
+|> Job.map (function Some x -> Choice1Of2 x | None -> Choice2Of2 "Not divisible by 2")
+|> ChoiceJob.map (fun i -> i / 6L)
+|> ChoiceJob.fold Some (fun _ -> None)
+|> OptionJob.orDefaultJob Clock.getSecondsSinceEpoch
+|> run
+
+(**
+Result:
+*)
+(*** include-it: extensions ***)
+(**
+
+SharedMap
+-------
+
+Example using the `SharedMap`:
+
+*)
 open Hopac
 open Hopac.Plus.Collections
 
