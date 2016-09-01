@@ -1,3 +1,6 @@
+### 0.1.3-beta002
+* Added `Supervisor` and `OneTimeSignalSource` for simple supervision (Thanks to Henrik Feldt (@haf) and Michael Newton (@mavnn) for the inspiration)
+
 ### 0.1.3-beta001
 * Added utility and timing extensions for `Promise`, `Job`, and `Alt`
 * Added `OptionJob` extensions
