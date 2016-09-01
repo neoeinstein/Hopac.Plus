@@ -103,12 +103,12 @@ module OptionJob =
       | Some x -> Job.result x
       | None -> xJ
 
-  let traverse xJ2yJ (xJO : #Job<'x> option) : Job<'y option> =
+  let traverse (xJ2yJ : Job<'x> -> #Job<'y>) (xJO : Job<'x> option) : Job<'y option> =
     match xJO with
     | Some xJ -> ofJob ^ xJ2yJ xJ
     | None -> none
 
-  let sequence (xJO : #Job<'x> option) : Job<'x option> =
+  let sequence (xJO : Job<'x> option) : Job<'x option> =
     traverse id xJO
 
 module ChoiceJob =
