@@ -33,11 +33,7 @@ module OneTimeSignalSource =
     uIC *<= IVar ()
 
   let triggerAndAwaitAck (OneTimeSignalSource uIC) : Alt<unit> =
-    Alt.withNackJob ^ fun nack ->
-      Alt.choose
-        [ nack ^=>. Alt.never
-          IVar.read uIC
-        ]
+    Alt.prepare ^ IVar.read uIC
 
   let signal (OneTimeSignalSource uIC) : OneTimeSignal =
     OneTimeSignal uIC
