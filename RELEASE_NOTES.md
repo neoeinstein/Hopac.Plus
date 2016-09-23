@@ -1,3 +1,10 @@
+### 0.1.3-beta004
+* Rewrite supervision to focus on individual jobs
+* Added automatic retry and exponential backoff policies
+* Rename `WillLocker` to `Will`
+* Remove `Supervisor` type and module
+* Create `Job.supervise` and `Job.superviseWithWill`
+
 ### 0.1.3-beta003
 * Expose `traverse` and `sequence` to `OptionJob` and `ChoiceJob`
 
