@@ -17,32 +17,64 @@ open Hopac.Infixes
 open Hopac.Plus.Supervision
 open Hopac.Plus.Extensions
 
-let testMinion name failIf shutdown locker : Job<unit> =
-  let rec loop state =
-    Alt.choose [
-      OneTimeSignal.awaitSignal shutdown ^=> SignalAck.ack
-      timeOutMillis 10
-        |> Alt.afterFun (fun () -> if failIf state then failwith "boom" else printfn "test [%O - %d]" name state)
-        |> Alt.afterJob (fun () -> let newState = state + 1 in WillLocker.updateWill locker newState >>=. loop newState)
-    ] |> asJob
-  WillLocker.getLastWill locker
-  |> OptionJob.bindJob loop
-  |> OptionJob.orDefaultJob (loop 0)
+let goodDaemon name will : Job<unit> =
+  let rec init () =
+    printfn "%s: Starting" name
+    Will.latest will
+    |> OptionJob.orDefault 0
+    |> Job.bind loop
+  and loop state =
+    printfn "%s: loop %i" name state
+    timeOutMillis 10
+      |> Alt.afterJob (fun () ->
+        let newState = state + 1
+        let nextLoop = if newState < 100 then loop newState else Alt.unit
+        Will.update will newState
+        >>=. nextLoop
+      )
+  init ()
 
-let shutdown = OneTimeSignalSource.create ()
-
-let sup = run <| Supervisor.create (OneTimeSignalSource.signal shutdown) (printfn "%s")
+let badDaemon name (rand : System.Random) will : Job<unit> =
+  let rec init () =
+    printfn "%s: Starting" name
+    Will.latest will
+    |> OptionJob.orDefault 0
+    |> Job.bind loop
+  and loop state =
+    printfn "%s: loop %i" name state
+    timeOutMillis 10
+      |> Alt.afterJob (fun () ->
+        let newState = state + 1
+        let nextLoop =
+          if newState < 100 then
+            if rand.Next(0,5) = 0 then
+              throw state
+            else
+              loop newState
+          else
+            Job.unit
+        Will.update will newState
+        >>=. nextLoop
+      ) |> asJob
+  and throw state =
+    Job.delay <| fun () ->
+      printfn "%s: Failed" name
+      if state < 75 then
+        job { raise (exn "Sadness") }
+      else
+        job { raise (exn "Super Sad") }
+  init ()
 
 let rand = System.Random()
 
-let job1 = JobHandle.createAnonymous ()
-let job2 = JobHandle.createAnonymous ()
+let startJ xJ = Promise.start xJ |> run >>- printfn "%A" |> start
 
-queue <| Supervisor.start sup job1 Restart (testMinion "test1" (fun _ -> false))
-queue <| Supervisor.start sup job2 (Delayed <| timeOutMillis 20) (testMinion "delayedTest" (fun _ -> rand.Next(0, 2) = 1))
+// Examples of starting supervised jobs
 
-queue <| Supervisor.stop sup job1
-queue <| Supervisor.stop sup job2
+let retryThrice = Policy.retry 3u
+let backoffTo8 = Policy.exponentialBackoff 1000u 2u 8000u 8u
 
-queue <| (timeOutMillis 1000 >>=. OneTimeSignalSource.triggerAndAwaitAck shutdown >>- fun () -> printfn "All done...")
-
+startJ <| Job.superviseWithWill Policy.restart (goodDaemon "happy")
+startJ <| Job.superviseWithWill Policy.terminate (badDaemon "sad" rand)
+startJ <| Job.superviseWithWill retryThrice (badDaemon "retry" rand)
+startJ <| Job.superviseWithWill backoffTo8 (badDaemon "retry" rand)
