@@ -1,3 +1,6 @@
+## 0.1.4
+* Bump Hopac dependency to 0.3.22
+
 ## 0.1.3
 * Added utility and timing extensions for `Promise`, `Job`, and `Alt`
 * Added `OptionJob` extensions including `traverse` and `sequence`
