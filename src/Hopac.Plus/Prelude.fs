@@ -3,7 +3,7 @@ namespace Hopac.Plus
 [<AutoOpen>]
 module internal Prelude =
   let always x _ = x
-  let inline (^) x = x
+  let inline (^) f x = f x
 
   module Option =
     let orDefault (def:'x) (xO:'x option) : 'x =
